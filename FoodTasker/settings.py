@@ -30,7 +30,7 @@ SECRET_KEY = config("SECRET_KEY") # this is to replace the secret key you cut aw
 DEBUG = config('DEBUG', default=False, cast=bool)
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','https://murmuring-atoll-86238.herokuapp.com/' ,'*']
 
 
 # Application definition
