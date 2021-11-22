@@ -1,1 +1,1 @@
-web: gunicorn foodtasker.wsgi
+web: gunicorn FoodTasker.wsgi
