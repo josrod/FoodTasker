@@ -1,2 +1,3 @@
 # LingenFoodTasker
-My test about uber eats app for Lingen (ems)
+
+My test app about a kind of uber eats app for Lingen (ems).

@@ -1,16 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
-  </head>
-  <body>
-    Sign Up Form
-    <form action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %} {{user_form}} {{restaurant_form}}
-      <button type="submit">Sign Up</button>
-    </form>
-  </body>
-</html>
+{% extends 'restaurant/base_auth.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Register{% endblock %}
+
+{% block heading %}Restaurant - Register{% endblock %}
+
+{% block content %}
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %} 
+		{% bootstrap_form user_form %}
+		{% bootstrap_form restaurant_form %}
+		
+		<button type="submit" class="btn btn-black btn-block">Register a new account</button>
+	</form>
+
+	<div class="text-center mt-3">
+		<a href="{% url 'restaurant_sign_in' %}">Already have an account</a>
+	</div>
+{% endblock %}
