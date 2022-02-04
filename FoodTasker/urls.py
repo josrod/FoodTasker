@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from coreapp import views
+from coreapp import views, apis
 
 urlpatterns = [
    # Web View - Admin
@@ -36,10 +36,28 @@ urlpatterns = [
     path('restaurant/order/', views.restaurant_order, name='restaurant_order'),
     path('restaurant/report/', views.restaurant_report, name='restaurant_report'),
 
-
     # APIs
-    # /convert-token (sign-in/sing-out),  /revoke-token (sign-out) 
-    path('api/social/', include('rest_framework_social_oauth2.urls'))
-    
+    #  /convert-token (sign-in/sign-up), /revoke-token (sign-out)
+    path('api/social/', include('rest_framework_social_oauth2.urls')),
+    path('api/restaurant/order/notification/<last_request_time>/', apis.restaurant_order_notification),
+
+    # APIS for CUSTOMERS
+    path('api/customer/restaurants/', apis.customer_get_restaurants),
+    path('api/customer/meals/<int:restaurant_id>', apis.customer_get_meals),
+    path('api/customer/order/add/', apis.customer_add_order),
+    path('api/customer/order/latest/', apis.customer_get_latest_order),
+    path('api/customer/order/latest_status/', apis.customer_get_latest_order_status),
+    path('api/customer/driver/location/', apis.customer_get_driver_location),
+    #path('api/customer/payment_intent/', apis.create_payment_intent),
+
+     # APIS for DRIVERS
+    path('api/driver/order/ready/', apis.driver_get_ready_orders),
+    path('api/driver/order/pick/', apis.driver_pick_order),
+    path('api/driver/order/latest/', apis.driver_get_latest_order),
+    path('api/driver/order/complete/', apis.driver_complete_order),
+    path('api/driver/revenue/', apis.driver_get_revenue),
+    path('api/driver/location/update/', apis.driver_update_location),
+    path('api/driver/profile/', apis.driver_get_profile),
+    path('api/driver/profile/update/', apis.driver_update_profile),
 
 ]
