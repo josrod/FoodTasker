@@ -48,7 +48,7 @@ urlpatterns = [
     path('api/customer/order/latest/', apis.customer_get_latest_order),
     path('api/customer/order/latest_status/', apis.customer_get_latest_order_status),
     path('api/customer/driver/location/', apis.customer_get_driver_location),
-    #path('api/customer/payment_intent/', apis.create_payment_intent),
+    path('api/customer/payment_intent/', apis.create_payment_intent),
 
      # APIS for DRIVERS
     path('api/driver/order/ready/', apis.driver_get_ready_orders),

@@ -232,6 +232,9 @@ LOGGING = {
     },
 }
 
+
+STRIPE_API_KEY = config("STRIPE_API_SECRET_KEY")
+
 #Configure Django app for Heroku
 import django_heroku
 django_heroku.settings(locals())
