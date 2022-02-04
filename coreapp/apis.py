@@ -11,7 +11,7 @@ from oauth2_provider.models import AccessToken
 from django.views.decorators.csrf import csrf_exempt
 
 import stripe
-from foodtasker.settings import STRIPE_API_KEY
+from FoodTasker.settings import STRIPE_API_KEY
 
 stripe.api_key = STRIPE_API_KEY
 
